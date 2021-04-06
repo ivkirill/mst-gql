@@ -209,7 +209,7 @@ export const QueryRootModelBase = withTypedRefs<Refs>()(ModelBase
   .named('QueryRoot')
   .props({
     __typename: types.optional(types.literal(\\"query_root\\"), \\"query_root\\"),
-    me: types.union(types.undefined, types.null, MSTGQLRef(types.late((): any => MyUserModel))),
+    me: types.union(types.undefined, types.null, MSTGQLRef(types.late((): typeof MyUserModel => MyUserModel))),
   })
   .views(self => ({
     get store() {
@@ -283,7 +283,7 @@ export const MyUserModelBase = withTypedRefs<Refs>()(ModelBase
     id: types.identifier,
     name: types.union(types.undefined, types.string),
     avatar: types.union(types.undefined, types.string),
-    emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): any => PossiblyEmptyBoxModel))))),
+    emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): typeof PossiblyEmptyBoxModel => PossiblyEmptyBoxModel))))),
   })
   .views(self => ({
     get store() {

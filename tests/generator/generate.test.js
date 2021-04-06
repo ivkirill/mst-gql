@@ -35,11 +35,11 @@ type Query {
 test("basic scaffolding with js naming convention, specific query type to work", () => {
   const output = scaffold(
     `
-    
+
 schema {
   query: query_root
 }
-    
+
 type my_user {
   id: ID
   name: String!
@@ -68,7 +68,7 @@ type query_root {
   expect(
     hasFileContent(
       findFile(output, "MyUserModel.base"),
-      "emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): any => PossiblyEmptyBoxModel))))),"
+      "emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): typeof PossiblyEmptyBoxModel => PossiblyEmptyBoxModel))))),"
     )
   ).toBeTruthy()
 
@@ -113,7 +113,7 @@ test("interface field type to work", () => {
 interface Owner {
   id: ID!
   name: String!
-}      
+}
 type User implements Owner {
   id: ID!
   name: String!
@@ -356,7 +356,7 @@ test("handle reserved graphql name", () => {
           id: ID
           channel: String
         }
-        
+
         type Query {
           subscription: Subscription
         }
