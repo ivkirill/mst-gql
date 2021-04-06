@@ -484,7 +484,7 @@ ${generateFragments(name, primitiveFields, nonPrimitiveFields)}
       }
 
       // always using late prevents potential circular dependency issues between files
-      const realType = `types.late(()${format === "ts" ? ": any" : ""} => ${
+      const realType = `types.late(()${format === "ts" ? `: typeof ${modelType}` : ""} => ${
         fieldType.name
       }Model)`
 
@@ -515,7 +515,7 @@ ${generateFragments(name, primitiveFields, nonPrimitiveFields)}
         const isSelf = fieldType.name === currentType
         // always using late prevents potential circular dependency issues between files
         return `types.late(()${
-          isSelf && format === "ts" ? ": any" : ""
+          isSelf && format === "ts" ? `: typeof ${subTypeClassName}` : ""
         } => ${subTypeClassName})`
       })
       return `types.union(${mstUnionArgs.join(", ")})`
