@@ -16,7 +16,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -79,7 +79,7 @@ export const UserModel = UserModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -188,7 +188,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { MSTGQLRef, QueryBuilder, withTypedRefs } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { MyUserModel, MyUserModelType } from \\"./MyUserModel\\"
@@ -209,7 +209,7 @@ export const QueryRootModelBase = withTypedRefs<Refs>()(ModelBase
   .named('QueryRoot')
   .props({
     __typename: types.optional(types.literal(\\"query_root\\"), \\"query_root\\"),
-    me: types.union(types.undefined, types.null, MSTGQLRef(types.late((): typeof MyUserModel => MyUserModel))),
+    me: types.union(types.undefined, types.null, MSTGQLRef(types.late((): IAnyModelType => MyUserModel))),
   })
   .views(self => ({
     get store() {
@@ -259,7 +259,7 @@ export const QueryRootModel = QueryRootModelBase
 /* tslint:disable */
 
 import { IObservableArray } from \\"mobx\\"
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { MSTGQLRef, QueryBuilder, withTypedRefs } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { PossiblyEmptyBoxModel, PossiblyEmptyBoxModelType } from \\"./PossiblyEmptyBoxModel\\"
@@ -283,7 +283,7 @@ export const MyUserModelBase = withTypedRefs<Refs>()(ModelBase
     id: types.identifier,
     name: types.union(types.undefined, types.string),
     avatar: types.union(types.undefined, types.string),
-    emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): typeof PossiblyEmptyBoxModel => PossiblyEmptyBoxModel))))),
+    emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): IAnyModelType => PossiblyEmptyBoxModel))))),
   })
   .views(self => ({
     get store() {
@@ -335,7 +335,7 @@ export const MyUserModel = MyUserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -398,7 +398,7 @@ export const PossiblyEmptyBoxModel = PossiblyEmptyBoxModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -513,7 +513,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -576,7 +576,7 @@ export const UserModel = UserModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -690,7 +690,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RoleEnumType } from \\"./RoleEnum\\"
@@ -762,7 +762,7 @@ export const UserModel = UserModelBase
     "/* This is a mst-gql generated file, don't modify it manually */
 /* eslint-disable */
 /* tslint:disable */
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 
 /**
  * Typescript enum
@@ -790,7 +790,7 @@ export const RoleEnumType = types.enumeration(\\"Role\\", [
     "/* This is a mst-gql generated file, don't modify it manually */
 /* eslint-disable */
 /* tslint:disable */
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 
 /**
  * Typescript enum
@@ -815,7 +815,7 @@ export const interest_enumType = types.enumeration(\\"interest_enum\\", [
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -928,7 +928,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { InterestEnumType } from \\"./InterestEnum\\"
@@ -1000,7 +1000,7 @@ export const UserModel = UserModelBase
     "/* This is a mst-gql generated file, don't modify it manually */
 /* eslint-disable */
 /* tslint:disable */
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 
 /**
  * Typescript enum
@@ -1028,7 +1028,7 @@ export const RoleEnumType = types.enumeration(\\"Role\\", [
     "/* This is a mst-gql generated file, don't modify it manually */
 /* eslint-disable */
 /* tslint:disable */
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 
 /**
  * Typescript enum
@@ -1053,7 +1053,7 @@ export const InterestEnumType = types.enumeration(\\"InterestEnum\\", [
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -1166,7 +1166,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { OrganizationModel } from \\"./OrganizationModel\\"
@@ -1261,7 +1261,7 @@ export const ownerModelPrimitives = selectFromOwner().name",
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -1328,7 +1328,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -1391,7 +1391,7 @@ export const OrganizationModel = OrganizationModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -1492,178 +1492,6 @@ export * from \\"./reactUtils\\"
 ]
 `;
 
-exports[`scaffolding with scalar type 1`] = `
-Array [
-  Array [
-    "ModelBase",
-    "import { MSTGQLObject } from \\"mst-gql\\"
-
-export const ModelBase = MSTGQLObject
-",
-    false,
-  ],
-  Array [
-    "HelloResultModel.base",
-    "/* This is a mst-gql generated file, don't modify it manually */
-/* eslint-disable */
-/* tslint:disable */
-
-import { types } from \\"mobx-state-tree\\"
-import { QueryBuilder } from \\"mst-gql\\"
-import { ModelBase } from \\"./ModelBase\\"
-import { RootStoreType } from \\"./index\\"
-
-
-/**
- * HelloResultBase
- * auto generated base class for the model HelloResultModel.
- */
-export const HelloResultModelBase = ModelBase
-  .named('HelloResult')
-  .props({
-    __typename: types.optional(types.literal(\\"HelloResult\\"), \\"HelloResult\\"),
-    result: types.union(types.undefined, types.string),
-  })
-  .views(self => ({
-    get store() {
-      return self.__getStore<RootStoreType>()
-    }
-  }))
-
-export class HelloResultModelSelector extends QueryBuilder {
-  get result() { return this.__attr(\`result\`) }
-}
-export function selectFromHelloResult() {
-  return new HelloResultModelSelector()
-}
-
-export const helloResultModelPrimitives = selectFromHelloResult().result
-",
-    true,
-  ],
-  Array [
-    "HelloResultModel",
-    "import { Instance } from \\"mobx-state-tree\\"
-import { HelloResultModelBase } from \\"./HelloResultModel.base\\"
-
-/* The TypeScript type of an instance of HelloResultModel */
-export interface HelloResultModelType extends Instance<typeof HelloResultModel.Type> {}
-
-/* A graphql query fragment builders for HelloResultModel */
-export { selectFromHelloResult, helloResultModelPrimitives, HelloResultModelSelector } from \\"./HelloResultModel.base\\"
-
-/**
- * HelloResultModel
- */
-export const HelloResultModel = HelloResultModelBase
-  .actions(self => ({
-    // This is an auto-generated example action.
-    log() {
-      console.log(JSON.stringify(self))
-    }
-  }))
-",
-    false,
-  ],
-  Array [
-    "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
-import { RootStoreBase } from \\"./RootStore.base\\"
-
-export interface RootStoreType extends Instance<typeof RootStore.Type> {}
-
-export const RootStore = RootStoreBase
-  .actions(self => ({
-    // This is an auto-generated example action.
-    log() {
-      console.log(JSON.stringify(self))
-    }
-  }))
-",
-    false,
-  ],
-  Array [
-    "RootStore.base",
-    "/* This is a mst-gql generated file, don't modify it manually */
-/* eslint-disable */
-/* tslint:disable */
-import { ObservableMap } from \\"mobx\\"
-import { types } from \\"mobx-state-tree\\"
-import { MSTGQLStore, configureStoreMixin, QueryOptions, withTypedRefs } from \\"mst-gql\\"
-
-import { HelloResultModel, HelloResultModelType } from \\"./HelloResultModel\\"
-import { helloResultModelPrimitives, HelloResultModelSelector } from \\"./HelloResultModel.base\\"
-
-
-
-/* The TypeScript type that explicits the refs to other models in order to prevent a circular refs issue */
-type Refs = {
-
-}
-
-
-/**
-* Enums for the names of base graphql actions
-*/
-export enum RootStoreBaseQueries {
-queryHelloWithString=\\"queryHelloWithString\\",
-queryHelloWithType=\\"queryHelloWithType\\"
-}
-
-
-/**
-* Store, managing, among others, all the objects received through graphQL
-*/
-export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
-  .named(\\"RootStore\\")
-  .extend(configureStoreMixin([['HelloResult', () => HelloResultModel]], []))
-  .props({
-
-  })
-  .actions(self => ({
-    queryHelloWithString(variables?: {  }, options: QueryOptions = {}) {
-      return self.query<{ helloWithString: string }>(\`query helloWithString { helloWithString }\`, variables, options)
-    },
-    queryHelloWithType(variables?: {  }, resultSelector: string | ((qb: HelloResultModelSelector) => HelloResultModelSelector) = helloResultModelPrimitives.toString(), options: QueryOptions = {}) {
-      return self.query<{ helloWithType: HelloResultModelType}>(\`query helloWithType { helloWithType {
-        \${typeof resultSelector === \\"function\\" ? resultSelector(new HelloResultModelSelector()).toString() : resultSelector}
-      } }\`, variables, options)
-    },
-  })))
-",
-    true,
-  ],
-  Array [
-    "reactUtils",
-    "/* This is a mst-gql generated file, don't modify it manually */
-/* eslint-disable */
-/* tslint:disable */
-
-import { createStoreContext, createUseQueryHook } from \\"mst-gql\\"
-import * as React from \\"react\\"
-import { RootStoreType } from \\"./RootStore\\"
-
-export const StoreContext = createStoreContext<RootStoreType>(React)
-
-export const useQuery = createUseQueryHook(StoreContext, React)
-",
-    true,
-  ],
-  Array [
-    "index",
-    "/* This is a mst-gql generated file, don't modify it manually */
-/* eslint-disable */
-/* tslint:disable */
-
-export * from \\"./HelloResultModel\\"
-export * from \\"./RootStore\\"
-export * from \\"./reactUtils\\"
-",
-    true,
-  ],
-]
-`;
-
 exports[`overrides TS types for query arguments and input types for fields with global type overrides with fieldOverrides 1`] = `
 Array [
   Array [
@@ -1680,7 +1508,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -1741,7 +1569,7 @@ export const UserModel = UserModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -1853,7 +1681,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -1918,7 +1746,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -1979,7 +1807,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -2097,7 +1925,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2162,7 +1990,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2223,7 +2051,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -2341,7 +2169,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2406,7 +2234,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2467,7 +2295,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -2585,7 +2413,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2650,7 +2478,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2711,7 +2539,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -2813,6 +2641,178 @@ export * from \\"./reactUtils\\"
 ]
 `;
 
+exports[`scaffolding with scalar type 1`] = `
+Array [
+  Array [
+    "ModelBase",
+    "import { MSTGQLObject } from \\"mst-gql\\"
+
+export const ModelBase = MSTGQLObject
+",
+    false,
+  ],
+  Array [
+    "HelloResultModel.base",
+    "/* This is a mst-gql generated file, don't modify it manually */
+/* eslint-disable */
+/* tslint:disable */
+
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
+import { QueryBuilder } from \\"mst-gql\\"
+import { ModelBase } from \\"./ModelBase\\"
+import { RootStoreType } from \\"./index\\"
+
+
+/**
+ * HelloResultBase
+ * auto generated base class for the model HelloResultModel.
+ */
+export const HelloResultModelBase = ModelBase
+  .named('HelloResult')
+  .props({
+    __typename: types.optional(types.literal(\\"HelloResult\\"), \\"HelloResult\\"),
+    result: types.union(types.undefined, types.string),
+  })
+  .views(self => ({
+    get store() {
+      return self.__getStore<RootStoreType>()
+    }
+  }))
+
+export class HelloResultModelSelector extends QueryBuilder {
+  get result() { return this.__attr(\`result\`) }
+}
+export function selectFromHelloResult() {
+  return new HelloResultModelSelector()
+}
+
+export const helloResultModelPrimitives = selectFromHelloResult().result
+",
+    true,
+  ],
+  Array [
+    "HelloResultModel",
+    "import { Instance } from \\"mobx-state-tree\\"
+import { HelloResultModelBase } from \\"./HelloResultModel.base\\"
+
+/* The TypeScript type of an instance of HelloResultModel */
+export interface HelloResultModelType extends Instance<typeof HelloResultModel.Type> {}
+
+/* A graphql query fragment builders for HelloResultModel */
+export { selectFromHelloResult, helloResultModelPrimitives, HelloResultModelSelector } from \\"./HelloResultModel.base\\"
+
+/**
+ * HelloResultModel
+ */
+export const HelloResultModel = HelloResultModelBase
+  .actions(self => ({
+    // This is an auto-generated example action.
+    log() {
+      console.log(JSON.stringify(self))
+    }
+  }))
+",
+    false,
+  ],
+  Array [
+    "RootStore",
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
+import { RootStoreBase } from \\"./RootStore.base\\"
+
+export interface RootStoreType extends Instance<typeof RootStore.Type> {}
+
+export const RootStore = RootStoreBase
+  .actions(self => ({
+    // This is an auto-generated example action.
+    log() {
+      console.log(JSON.stringify(self))
+    }
+  }))
+",
+    false,
+  ],
+  Array [
+    "RootStore.base",
+    "/* This is a mst-gql generated file, don't modify it manually */
+/* eslint-disable */
+/* tslint:disable */
+import { ObservableMap } from \\"mobx\\"
+import { types } from \\"mobx-state-tree\\"
+import { MSTGQLStore, configureStoreMixin, QueryOptions, withTypedRefs } from \\"mst-gql\\"
+
+import { HelloResultModel, HelloResultModelType } from \\"./HelloResultModel\\"
+import { helloResultModelPrimitives, HelloResultModelSelector } from \\"./HelloResultModel.base\\"
+
+
+
+/* The TypeScript type that explicits the refs to other models in order to prevent a circular refs issue */
+type Refs = {
+
+}
+
+
+/**
+* Enums for the names of base graphql actions
+*/
+export enum RootStoreBaseQueries {
+queryHelloWithString=\\"queryHelloWithString\\",
+queryHelloWithType=\\"queryHelloWithType\\"
+}
+
+
+/**
+* Store, managing, among others, all the objects received through graphQL
+*/
+export const RootStoreBase = withTypedRefs<Refs>()(MSTGQLStore
+  .named(\\"RootStore\\")
+  .extend(configureStoreMixin([['HelloResult', () => HelloResultModel]], []))
+  .props({
+
+  })
+  .actions(self => ({
+    queryHelloWithString(variables?: {  }, options: QueryOptions = {}) {
+      return self.query<{ helloWithString: string }>(\`query helloWithString { helloWithString }\`, variables, options)
+    },
+    queryHelloWithType(variables?: {  }, resultSelector: string | ((qb: HelloResultModelSelector) => HelloResultModelSelector) = helloResultModelPrimitives.toString(), options: QueryOptions = {}) {
+      return self.query<{ helloWithType: HelloResultModelType}>(\`query helloWithType { helloWithType {
+        \${typeof resultSelector === \\"function\\" ? resultSelector(new HelloResultModelSelector()).toString() : resultSelector}
+      } }\`, variables, options)
+    },
+  })))
+",
+    true,
+  ],
+  Array [
+    "reactUtils",
+    "/* This is a mst-gql generated file, don't modify it manually */
+/* eslint-disable */
+/* tslint:disable */
+
+import { createStoreContext, createUseQueryHook } from \\"mst-gql\\"
+import * as React from \\"react\\"
+import { RootStoreType } from \\"./RootStore\\"
+
+export const StoreContext = createStoreContext<RootStoreType>(React)
+
+export const useQuery = createUseQueryHook(StoreContext, React)
+",
+    true,
+  ],
+  Array [
+    "index",
+    "/* This is a mst-gql generated file, don't modify it manually */
+/* eslint-disable */
+/* tslint:disable */
+
+export * from \\"./HelloResultModel\\"
+export * from \\"./RootStore\\"
+export * from \\"./reactUtils\\"
+",
+    true,
+  ],
+]
+`;
+
 exports[`union field type to work 1`] = `
 Array [
   Array [
@@ -2829,7 +2829,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { BookModel } from \\"./BookModel\\"
@@ -2923,7 +2923,7 @@ export const searchItemModelPrimitives = selectFromSearchItem().movie(movieModel
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -2988,7 +2988,7 @@ export const MovieModel = MovieModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -3049,7 +3049,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -3166,7 +3166,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -3229,7 +3229,7 @@ export const UserModel = UserModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -3347,7 +3347,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -3414,7 +3414,7 @@ export const UserModel = UserModelBase
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -3477,7 +3477,7 @@ export const BookModel = BookModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}
@@ -3595,7 +3595,7 @@ export const ModelBase = MSTGQLObject
 /* eslint-disable */
 /* tslint:disable */
 
-import { types } from \\"mobx-state-tree\\"
+import { IAnyModelType, types } from \\"mobx-state-tree\\"
 import { QueryBuilder } from \\"mst-gql\\"
 import { ModelBase } from \\"./ModelBase\\"
 import { RootStoreType } from \\"./index\\"
@@ -3656,7 +3656,7 @@ export const MovieModel = MovieModelBase
   ],
   Array [
     "RootStore",
-    "import { Instance } from \\"mobx-state-tree\\"
+    "import { IAnyModelType, Instance } from \\"mobx-state-tree\\"
 import { RootStoreBase } from \\"./RootStore.base\\"
 
 export interface RootStoreType extends Instance<typeof RootStore.Type> {}

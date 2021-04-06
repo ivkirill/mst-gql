@@ -68,7 +68,7 @@ type query_root {
   expect(
     hasFileContent(
       findFile(output, "MyUserModel.base"),
-      "emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): typeof PossiblyEmptyBoxModel => PossiblyEmptyBoxModel))))),"
+      "emptyBoxes: types.union(types.undefined, types.array(types.union(types.null, MSTGQLRef(types.late((): IAnyModelType => PossiblyEmptyBoxModel))))),"
     )
   ).toBeTruthy()
 

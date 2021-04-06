@@ -185,7 +185,7 @@ export enum ${name} {
 
     const contents = `\
 ${header}
-import { types } from "mobx-state-tree"
+import { ${ifTS("IAnyModelType, ")}types } from "mobx-state-tree"
 
 ${tsType}
 
@@ -263,7 +263,7 @@ ${
     ? `import { IObservableArray } from "mobx"\n`
     : ""
 }\
-import { types } from "mobx-state-tree"
+import { ${ifTS("IAnyModelType, ")}types } from "mobx-state-tree"
 import {${refs.length > 0 ? " MSTGQLRef," : ""} QueryBuilder${
       useTypedRefs ? ", withTypedRefs" : ""
     } } from "mst-gql"
@@ -484,9 +484,9 @@ ${generateFragments(name, primitiveFields, nonPrimitiveFields)}
       }
 
       // always using late prevents potential circular dependency issues between files
-      const realType = `types.late(()${format === "ts" ? `: typeof ${modelType}` : ""} => ${
-        fieldType.name
-      }Model)`
+      const realType = `types.late(()${
+        format === "ts" ? `: IAnyModelType` : ""
+      } => ${fieldType.name}Model)`
 
       // this object is not a root type, so assume composition relationship
       if (!isSelf && !rootTypes.includes(fieldType.name)) return realType
@@ -599,7 +599,9 @@ ${generateFragments(name, primitiveFields, nonPrimitiveFields)}
   function generateRootStore() {
     toExport.push("RootStore")
 
-    const entryFile = `${ifTS('import { Instance } from "mobx-state-tree"\n')}\
+    const entryFile = `${ifTS(
+      'import { IAnyModelType, Instance } from "mobx-state-tree"\n'
+    )}\
 import { RootStoreBase } from "./RootStore.base${importPostFix}"
 
 ${

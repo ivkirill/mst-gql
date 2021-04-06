@@ -3,7 +3,7 @@
 /* tslint:disable */
 
 import { IObservableArray } from "mobx"
-import { types } from "mobx-state-tree"
+import { IAnyModelType, types } from "mobx-state-tree"
 import { MSTGQLRef, QueryBuilder, withTypedRefs } from "mst-gql"
 import { ModelBase } from "./ModelBase"
 import { PokemonAttackModel, PokemonAttackModelType } from "./PokemonAttackModel"
@@ -38,9 +38,9 @@ export const PokemonModelBase = withTypedRefs<Refs>()(ModelBase
     /** The name of this Pokémon */
     name: types.union(types.undefined, types.null, types.string),
     /** The minimum and maximum weight of this Pokémon */
-    weight: types.union(types.undefined, types.null, types.late((): any => PokemonDimensionModel)),
+    weight: types.union(types.undefined, types.null, types.late((): IAnyModelType => PokemonDimensionModel)),
     /** The minimum and maximum weight of this Pokémon */
-    height: types.union(types.undefined, types.null, types.late((): any => PokemonDimensionModel)),
+    height: types.union(types.undefined, types.null, types.late((): IAnyModelType => PokemonDimensionModel)),
     /** The classification of this Pokémon */
     classification: types.union(types.undefined, types.null, types.string),
     /** The type(s) of this Pokémon */
@@ -48,16 +48,16 @@ export const PokemonModelBase = withTypedRefs<Refs>()(ModelBase
     /** The type(s) of Pokémons that this Pokémon is resistant to */
     resistant: types.union(types.undefined, types.null, types.array(types.union(types.null, types.string))),
     /** The attacks of this Pokémon */
-    attacks: types.union(types.undefined, types.null, types.late((): any => PokemonAttackModel)),
+    attacks: types.union(types.undefined, types.null, types.late((): IAnyModelType => PokemonAttackModel)),
     /** The type(s) of Pokémons that this Pokémon weak to */
     weaknesses: types.union(types.undefined, types.null, types.array(types.union(types.null, types.string))),
     fleeRate: types.union(types.undefined, types.null, types.number),
     /** The maximum CP of this Pokémon */
     maxCP: types.union(types.undefined, types.null, types.integer),
     /** The evolutions of this Pokémon */
-    evolutions: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): any => PokemonModel))))),
+    evolutions: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): IAnyModelType => PokemonModel))))),
     /** The evolution requirements of this Pokémon */
-    evolutionRequirements: types.union(types.undefined, types.null, types.late((): any => PokemonEvolutionRequirementModel)),
+    evolutionRequirements: types.union(types.undefined, types.null, types.late((): IAnyModelType => PokemonEvolutionRequirementModel)),
     /** The maximum HP of this Pokémon */
     maxHP: types.union(types.undefined, types.null, types.integer),
     image: types.union(types.undefined, types.null, types.string),

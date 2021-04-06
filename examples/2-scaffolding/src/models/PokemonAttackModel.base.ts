@@ -3,7 +3,7 @@
 /* tslint:disable */
 
 import { IObservableArray } from "mobx"
-import { types } from "mobx-state-tree"
+import { IAnyModelType, types } from "mobx-state-tree"
 import { MSTGQLRef, QueryBuilder, withTypedRefs } from "mst-gql"
 import { ModelBase } from "./ModelBase"
 import { AttackModel, AttackModelType } from "./AttackModel"
@@ -28,9 +28,9 @@ export const PokemonAttackModelBase = withTypedRefs<Refs>()(ModelBase
   .props({
     __typename: types.optional(types.literal("PokemonAttack"), "PokemonAttack"),
     /** The fast attacks of this Pokémon */
-    fast: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): any => AttackModel))))),
+    fast: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): IAnyModelType => AttackModel))))),
     /** The special attacks of this Pokémon */
-    special: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): any => AttackModel))))),
+    special: types.union(types.undefined, types.null, types.array(types.union(types.null, MSTGQLRef(types.late((): IAnyModelType => AttackModel))))),
   })
   .views(self => ({
     get store() {
